@@ -22,19 +22,7 @@ use Tymon\JWTAuth\Test\AbstractTestCase;
 
 class CollectionTest extends AbstractTestCase
 {
-    private function getCollection()
-    {
-        $claims = [
-            new Subject(1),
-            new Issuer('http://example.com'),
-            new Expiration($this->testNowTimestamp + 3600),
-            new NotBefore($this->testNowTimestamp),
-            new IssuedAt($this->testNowTimestamp),
-            new JwtId('foo'),
-        ];
-
-        return new Collection($claims);
-    }
+    
 
     /** @test */
     public function it_should_sanitize_the_claims_to_associative_array()

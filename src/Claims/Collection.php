@@ -105,17 +105,5 @@ class Collection extends IlluminateCollection
      *
      * @return array
      */
-    private function sanitizeClaims($items)
-    {
-        $claims = [];
-        foreach ($items as $key => $value) {
-            if (! is_string($key) && $value instanceof Claim) {
-                $key = $value->getName();
-            }
-
-            $claims[$key] = $value;
-        }
-
-        return $claims;
-    }
+    
 }

@@ -85,12 +85,7 @@ class IlluminateTest extends AbstractTestCase
      *
      * @return void
      */
-    private function emulateTags()
-    {
-        $this->storage = new TaggedStorage($this->cache);
-
-        $this->cache->shouldReceive('tags')->with('tymon.jwt')->once()->andReturn(Mockery::self());
-    }
+    
 
     /** @test */
     public function it_should_add_the_item_to_tagged_storage()

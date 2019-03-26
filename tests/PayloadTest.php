@@ -48,28 +48,7 @@ class PayloadTest extends AbstractTestCase
      *
      * @return \Tymon\JWTAuth\Payload
      */
-    private function getTestPayload(array $extraClaims = [])
-    {
-        $claims = [
-            new Subject(1),
-            new Issuer('http://example.com'),
-            new Expiration($this->testNowTimestamp + 3600),
-            new NotBefore($this->testNowTimestamp),
-            new IssuedAt($this->testNowTimestamp),
-            new JwtId('foo'),
-        ];
-
-        if ($extraClaims) {
-            $claims = array_merge($claims, $extraClaims);
-        }
-
-        $collection = Collection::make($claims);
-
-        $this->validator = Mockery::mock(PayloadValidator::class);
-        $this->validator->shouldReceive('setRefreshFlow->check')->andReturn($collection);
-
-        return new Payload($collection, $this->validator);
-    }
+    
 
     /**
      * @test
